@@ -17,9 +17,11 @@ const Task = (props) => {
     props.onUpdateTasks(updatedTask);
   };
 
+  const completionStyling = props.isComplete ? 'tasks__item__toggle--completed' : 'tasks__item__toggle';
+
   return (
     <li className="tasks__item">
-      <button className="tasks__item__toggle" onClick={onCompleteButtonClick}>{props.title}</button>
+      <button className={completionStyling} onClick={onCompleteButtonClick}>{props.title}</button>
       <button className="tasks__item__remove button">x</button>
     </li>
   );
