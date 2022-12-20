@@ -12,7 +12,7 @@ const NewTaskForm = (props) => {
 
         props.addTaskCallback(formData);
         setFormData({ title: '', isComplete: false });
-    }
+    };
 
     const changeHandler = (event) => {
         setFormData({ ...formData, [event.target.name]: event.target.value });
