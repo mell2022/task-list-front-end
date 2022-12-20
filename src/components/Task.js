@@ -11,7 +11,8 @@ const Task = (props) => {
       id: props.id,
       title: props.title,
       isComplete: !props.isComplete,
-      onUpdateTasks: props.onUpdateTasks
+      onUpdateTasks: props.onUpdateTasks,
+      deleteTask: props.deleteTask
     };
 
     props.onUpdateTasks(updatedTask);
@@ -22,7 +23,7 @@ const Task = (props) => {
   return (
     <li className="tasks__item">
       <button className={completionStyling} onClick={onCompleteButtonClick}>{props.title}</button>
-      <button className="tasks__item__remove button">x</button>
+      <button className="tasks__item__remove button" onClick={() => props.deleteTask(props.id)}>x</button>
     </li>
   );
 };
@@ -31,7 +32,8 @@ Task.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   isComplete: PropTypes.bool.isRequired,
-  onUpdateTasks: PropTypes.func.isRequired
+  onUpdateTasks: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 export default Task;

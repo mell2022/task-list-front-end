@@ -29,6 +29,11 @@ const App = () => {
     setTaskData(tasks);
   };
 
+  const deleteTask = id => {
+    const newTasks = taskData.filter((task) => task.id !== id);
+    setTaskData(newTasks);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -38,7 +43,8 @@ const App = () => {
         <div>
           <TaskList 
             tasks={taskData} 
-            onUpdateTasks={updateTaskData}/>
+            onUpdateTasks={updateTaskData}
+            deleteTask={deleteTask} />
         </div>
       </main>
     </div>
