@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TaskList from './components/TaskList.js';
+import NewTaskForm from './components/NewTaskForm.js';
 import './App.css';
+import axios from 'axios';
 
 
 const App = () => {
@@ -29,6 +31,10 @@ const App = () => {
     setTaskData(tasks);
   };
 
+  const addTask = (task) => {
+    // this is where our axios call goes
+  };
+
   const deleteTask = id => {
     const newTasks = taskData.filter((task) => task.id !== id);
     setTaskData(newTasks);
@@ -45,6 +51,7 @@ const App = () => {
             tasks={taskData} 
             onUpdateTasks={updateTaskData}
             deleteTask={deleteTask} />
+          <NewTaskForm addTaskCallback={addTask} />
         </div>
       </main>
     </div>
